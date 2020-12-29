@@ -254,3 +254,83 @@ for (let i = 0; i < countries.length; i++) {
   if (countries[i].length === 5) char5Country.push(countries[i]);
 }
 console.log(char5Country);
+
+/* Find the longest word in the webTechs array
+
+ */
+let longestTechWord = '';
+for (let i = 0; i < webTechs.length; i++) {
+  if (webTechs[i].length > longestTechWord.length)
+    longestTechWord = webTechs[i];
+}
+console.log(longestTechWord);
+
+/* Use the webTechs array to create the following array of arrays:
+
+ */
+let webTechArrayofArrays = [];
+for (let i = 0; i < webTechs.length; i++) {
+  let arr = [];
+  arr.push(webTechs[i], webTechs[i].length);
+  webTechArrayofArrays.push(arr);
+}
+console.log(webTechArrayofArrays);
+
+/* An application created using MongoDB, Express, React and Node is called a MERN stack app. Create the acronym MERN by using the array mernStack
+
+ */
+
+let accronym = '';
+for (let i = 0; i < mernStack.length; i++) {
+  accronym += mernStack[i][0];
+}
+console.log(accronym);
+console.log('   ');
+/* Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items. */
+let webArray = [
+  'HTML',
+  'CSS',
+  'JS',
+  'React',
+  'Redux',
+  'Node',
+  'Express',
+  'MongoDB',
+];
+for (element of webArray) {
+  console.log(element);
+}
+
+console.log('   ');
+
+/* This is a fruit array , ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
+
+ */
+
+let fruit = ['banana', 'orange', 'mango', 'lemon'];
+fruit.forEach((element) => console.log(element));
+
+/*Print all the elements of array as shown below.
+ */
+console.log('------------');
+const fullStack = [
+  ['HTML', 'CSS', 'JS', 'React'],
+  ['Node', 'Express', 'MongoDB'],
+];
+for (arr of fullStack) {
+  for (elem of arr) {
+    console.log(elem);
+  }
+}
+
+console.log('------------ Level 3 ------------ ');
+
+/* Copy countries array(Avoid mutation)
+ */
+
+let orgCountries = [...countries];
+
+let copyOrgCountries = [...orgCountries];
+let sortedCoun = copyOrgCountries.reverse();
+console.log(orgCountries);
+console.log(sortedCoun);
