@@ -60,6 +60,7 @@ for (let i = 0; i <= n; i++) {
 /* 
 Use loop to print the following pattern:
 
+
 0 x 0 = 0
 1 x 1 = 1
 2 x 2 = 4
