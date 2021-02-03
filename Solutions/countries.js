@@ -1,4 +1,4 @@
-const countries = [
+module.exports = [
   'Afghanistan',
   'Albania',
   'Algeria',

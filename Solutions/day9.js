@@ -479,17 +479,17 @@ const statistics = {
   },
   freDist: function () {},
   describe: function (data) {
-    return data
-      .count()
-      .sum()
-      .min()
-      .max()
-      .range()
-      .mean()
-      .median()
-      .mode()
-      .var()
-      .std();
+    return `
+    Count: ${this.sum(data)},
+    Sum: ${this.count(data)},
+   Min: ${this.min(data)},
+    Max: ${this.max(data)},
+    Range: ${this.range(data)},
+    Mean: ${this.mean(data)},
+   Median: ${this.median(data)},
+   Mode: ${this.mode(data)},
+   Variance:  ${this.var(data)},
+    Standard Distribution: ${this.std(data)}`;
   },
 };
 
