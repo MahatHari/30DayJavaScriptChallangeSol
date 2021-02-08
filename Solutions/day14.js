@@ -202,3 +202,46 @@ console.log('Standar Deviation :', stat.std); */
 XFStnSrYZ7jv; */
 
 stat.describe;
+
+/**
+ * Create a class called PersonAccount. It has firstname, lastname, incomes,
+ * expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome,
+ * addExpense and accountBalance methods. Incomes is a set of incomes and its description
+ * and expenses is also a set of expenses and its description.
+ */
+
+class PersonAccount {
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.incomes = 0;
+    this.expenses = 0;
+  }
+  get totalIncome() {
+    return this.incomes;
+  }
+  get totalExpenses() {
+    return this.expenses;
+  }
+  get accountInfo() {
+    return `${this.firstname}  ${this.lastname}
+Current Balance : ${this.accountBalance}`;
+  }
+  set addIncome(incomes) {
+    this.incomes += incomes;
+  }
+  set addExpenses(expenses) {
+    this.expenses += expenses;
+  }
+  get accountBalance() {
+    return this.totalIncome - this.totalExpenses;
+  }
+}
+
+let myAccount = new PersonAccount('Hari', 'Mahat');
+console.log(myAccount.accountInfo);
+
+myAccount.addIncome = 500;
+myAccount.addExpenses = 200;
+console.log(myAccount.incomes);
+console.log(myAccount.accountInfo);
