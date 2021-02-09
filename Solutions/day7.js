@@ -107,7 +107,8 @@ findMax(2, 3, 4, 5, 2, 4, 1, 2, 10, 2, 11);
 
 /***************  Level 2 *******************/
 
-/* Linear equation is calculated as follows: ax + by + c = 0. Write a function which calculates value of a linear equation, solveLinEquation.
+/* Linear equation is calculated as follows: ax + by + c = 0. 
+Write a function which calculates value of a linear equation, solveLinEquation.
 
  */
 
@@ -118,7 +119,8 @@ findMax(2, 3, 4, 5, 2, 4, 1, 2, 10, 2, 11);
 //   y= a2/b2 *x + c2
 
 //  }
-/* Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, solveQuadEquation. */
+/* Quadratic equation is calculated as follows: ax2 + bx + c = 0. 
+Write a function which calculates value or values of a quadratic equation, solveQuadEquation. */
 
 function solveQuadEquation(a, b, c) {
   if (arguments.length === 0) return 'give values of a and b';
