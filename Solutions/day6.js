@@ -207,7 +207,7 @@ console.log(charCount);
   ['Kenya', 'KEN', 5]
 ] */
 
-let arrayOfArrays = [];
+/* let arrayOfArrays = [];
 for (let i = 0; i < countries.length; i++) {
   let arr = [];
   arr.push(
@@ -217,7 +217,18 @@ for (let i = 0; i < countries.length; i++) {
   );
   arrayOfArrays.push(arr);
 }
-console.log(arrayOfArrays);
+console.log(arrayOfArrays); */
+
+let resultArray = [];
+
+for (country of countries) {
+  let arrayOfArray = [];
+  let x = arrayOfArray.push(country);
+  let y = arrayOfArray.push(country.substr(0, 3).toUpperCase());
+  let z = arrayOfArray.push(country.length);
+  resultArray.push(arrayOfArray);
+}
+console.log(resultArray);
 
 /* In above countries array, check if there is a country or countries containing the word 'land'. 
 If there are countries containing 'land', print it as array. 
@@ -259,7 +270,7 @@ console.log(char5Country);
 /* Find the longest word in the webTechs array
 
  */
-let longestTechWord = '';
+let longestTechWord = ''; //
 for (let i = 0; i < webTechs.length; i++) {
   if (webTechs[i].length > longestTechWord.length)
     longestTechWord = webTechs[i];
