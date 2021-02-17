@@ -172,9 +172,11 @@ let bstyle = {
   flexDirection: 'column',
   justifyContent: 'center',
   minHeight: '100vh',
-  width: '1040px',
+  width: '100vh',
   marginLeft: 'auto',
   marginRight: 'auto',
+  lineHeight: '1.6',
+  letterSpacing: '1px',
   textAlign: 'center',
 };
 let body = document.getElementsByTagName('body');
