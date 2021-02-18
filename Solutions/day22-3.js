@@ -60,9 +60,14 @@ for (const challenge of hariSolution2020.challenges) {
   console.log(challenge.name);
   let challengeName = document.createElement('div');
   challengeName.className = 'challengeName';
+
   challengeName.innerText = challenge.name;
   let topicDiv = document.createElement('div');
+
   topicDiv.className = 'topic';
+  topicDiv.style.display = 'flex';
+
+  topicDiv.style.justifyContent = 'start';
   topicDiv.innerText = challenge.topics[0];
   let completeDiv = document.createElement('div');
   completeDiv.className = 'status';
@@ -72,7 +77,30 @@ for (const challenge of hariSolution2020.challenges) {
   cha.append(challengeName);
   cha.append(topicDiv);
   cha.append(completeDiv);
+  cha.className = 'dataDiv';
   dataCoverDiv.appendChild(cha);
+
+  if (challenge.status === 'Done') {
+    cha.style.backgroundColor = 'green';
+  }
+  if (challenge.status === 'Ongoing') {
+    cha.style.backgroundColor = 'yellow';
+  }
+  if (challenge.status === 'Coming') {
+    cha.style.backgroundColor = 'red';
+  }
+
+  let dataCss = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    minHeight: '5vh',
+    minWidth: '100%',
+    alignItems: 'center',
+    marginBottom: '4px',
+    padding: '20px',
+  };
+  Object.assign(cha.style, dataCss);
 }
 wrapper.appendChild(dataCoverDiv);
 
@@ -86,15 +114,24 @@ authorDiv.appendChild(nameDiv);
 // Creating adding Each Social Links
 const socialLinks = document.createElement('div');
 let unOrder = document.createElement('ul');
+unOrder.style.display = 'flex';
+unOrder.style.flexDirection = 'row';
+unOrder.style.justifyContent = 'center';
+
 for (const links of hariSolution2020.author.socialLinks) {
   let socialLinks = document.createElement('li');
   let anchorTag = document.createElement('a');
   anchorTag.href = links.url;
   anchorTag.innerHTML = links.fontawesomeIcon;
+  socialLinks.style.listStyle = 'none';
+  socialLinks.style.padding = '10px';
+  unOrder.style.fontSize = '60px';
+
   socialLinks.appendChild(anchorTag);
   unOrder.appendChild(socialLinks);
 }
 socialLinks.appendChild(unOrder);
+
 // adding  Social links to Author Div
 authorDiv.appendChild(socialLinks);
 //Creating and adding description paragraph
@@ -119,6 +156,8 @@ for (const title of hariSolution2020.author.titles) {
   let list = document.createElement('li');
   console.log(title[0]);
   list.innerText = title[0] + ' ' + title[1];
+  list.style.listStyle = 'none';
+
   ultitle.appendChild(list);
 }
 titles.appendChild(titleH3);
@@ -134,6 +173,8 @@ let ultitle2 = document.createElement('ul');
 for (const skill of hariSolution2020.author.skills) {
   let list = document.createElement('li');
   list.innerText = skill;
+  list.style.listStyle = 'none';
+
   ultitle2.appendChild(list);
 }
 skills.appendChild(skillH3);
@@ -150,6 +191,7 @@ for (const qaul of hariSolution2020.author.qualifications) {
   let list = document.createElement('li');
   console.log(qaul);
   list.innerText = qaul;
+  list.style.listStyle = 'none';
   ultitle3.appendChild(list);
 }
 qualifications.appendChild(qualH3);
@@ -169,6 +211,8 @@ for (const keyword of hariSolution2020.keywords) {
     padding: '10px',
     margin: '5px',
     textAlignment: 'center',
+    color: 'white',
+    fontSize: '24px',
   };
   let keySpan = document.createElement('span');
   keySpan.innerText = '#' + keyword;
@@ -178,3 +222,59 @@ for (const keyword of hariSolution2020.keywords) {
   keywordDiv.appendChild(keySpan);
 }
 wrapper.appendChild(keywordDiv);
+
+// Wapper Css
+let wrapperCss = {
+  display: 'flex',
+  height: '100vh',
+  maxWidth: '100%',
+  alignItems: 'center',
+  flexDirection: 'column',
+  margin: 'auto',
+};
+Object.assign(wrapper.style, wrapperCss);
+
+// Title CSS
+let titleCss = {
+  display: 'flex',
+};
+//DataCover DIV
+let dataDivCss = {
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  width: '90%',
+};
+Object.assign(dataCoverDiv.style, dataDivCss);
+// Data DIV
+
+// Author Div
+let authorCss = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  minHeight: '30vh',
+  alignItems: 'center',
+  width: '90%',
+};
+Object.assign(authorDiv.style, authorCss);
+//Profile Div
+let profileCss = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: 'row',
+  minHeight: '20vh',
+  minWidth: '80%',
+
+  marginBottom: '4px',
+  padding: '20px',
+};
+Object.assign(profile.style, profileCss);
+// Keyword Div
+
+let keyworCss = {
+  minWidth: '80%',
+};
+Object.assign(keywordDiv.style, keyworCss);
+
+// Background color Over Ride
