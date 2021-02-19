@@ -137,7 +137,7 @@ export const hariSolution2020 = {
         'MERN',
       ],
       days: 30,
-      status: 'Coming',
+      status: 'Ongoing',
       questions: '',
       projects: '',
       interviewQns: '',

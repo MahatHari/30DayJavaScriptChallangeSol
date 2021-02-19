@@ -68,10 +68,21 @@ for (const challenge of hariSolution2020.challenges) {
   topicDiv.style.display = 'flex';
 
   topicDiv.style.justifyContent = 'start';
-  topicDiv.innerText = challenge.topics[0];
+  let detailTag = document.createElement('details');
+
+  let summaryTag = document.createElement('summary');
+  let paraTag = document.createElement('p');
+  paraTag.innerText = challenge.topics;
+  summaryTag.innerText = challenge.topics[0];
   let completeDiv = document.createElement('div');
+
   completeDiv.className = 'status';
   completeDiv.innerText = challenge.status;
+
+  // adding to detail tage
+  detailTag.append(summaryTag);
+  detailTag.append(paraTag);
+  topicDiv.appendChild(detailTag);
 
   let cha = document.createElement('div');
   cha.append(challengeName);
@@ -154,9 +165,20 @@ titleH3.innerText = 'Titles';
 let ultitle = document.createElement('ul');
 for (const title of hariSolution2020.author.titles) {
   let list = document.createElement('li');
-  console.log(title[0]);
-  list.innerText = title[0] + ' ' + title[1];
+  let icon = document.createElement('span');
+  let titleText = document.createElement('span');
+
+  icon.innerText = title[0];
+  titleText.innerText = title[1];
+  list.append(icon);
+  list.append(titleText);
+
+  icon.style.display = 'block-inline';
+  //icon.style.border = '1px solid black';
+  icon.style.marginRight = '20px';
+
   list.style.listStyle = 'none';
+  list.style.marginLeft = '-90px';
 
   ultitle.appendChild(list);
 }
@@ -174,6 +196,7 @@ for (const skill of hariSolution2020.author.skills) {
   let list = document.createElement('li');
   list.innerText = skill;
   list.style.listStyle = 'none';
+  list.style.marginLeft = '-80px';
 
   ultitle2.appendChild(list);
 }
@@ -192,6 +215,8 @@ for (const qaul of hariSolution2020.author.qualifications) {
   console.log(qaul);
   list.innerText = qaul;
   list.style.listStyle = 'none';
+  list.style.marginLeft = '-90px';
+
   ultitle3.appendChild(list);
 }
 qualifications.appendChild(qualH3);
@@ -231,6 +256,7 @@ let wrapperCss = {
   alignItems: 'center',
   flexDirection: 'column',
   margin: 'auto',
+  backgroundColor: '#F5F5F5	',
 };
 Object.assign(wrapper.style, wrapperCss);
 

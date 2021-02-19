@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Exercise Level 1 -->
+
+    <!-- Generating numbers and marking evens, odds and prime numbers with three different colors. 
+    See the image below.
+ -->
+    <div class="wrapper" id="wrapper">
+      <div id="intro">
+        <h1>Number Generator</h1>
+        <h3>30 Days of Javascript DOM: Day 3</h3>
+        <h3>Solver: Hari Krishna Mahat</h3>
+        <p id="error"></p>
+        <div id="inputbox">
+          <input type="text" id="number" placeholder="Generate more numbers" />
+          <button onclick="getInputNum()">Generate Number</button>
+        </div>
+      </div>
+
+      <div id="geNum"></div>
+
+      <div id="part2">
+        <p id="info">Press any keyboard key</p>
+        <p id="code"></p>
+      </div>
+    </div>
+  </body>
+  <script>
+    function isPrime(num) {
+      if (num === 1 || num < 1) {
+        return false;
+      } else if (num === 2) {
+        return true;
+      } else {
+        for (let i = 2, s = Math.sqrt(num); i <= s; i++) {
+          if (num % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+    }
+    let val;
+    function getInputNum() {
+      let inputNum = document.getElementById('number');
+      let num = inputNum.value;
+      let a = parseInt(num);
+
+      if (typeof a !== 'number' || isNaN(a)) {
+        document.getElementById('error').innerText =
+          'Invalid number, input must be number';
+        document.getElementById('error').style.color = 'red';
+      } else {
+        document.getElementById('error').innerText = '';
+        document.getElementById('error').style.color = 'red';
+        test(a);
+      }
+    }
+    //console.log(val);
+    let geNum = document.getElementById('geNum');
+
+    function test(num) {
+      let numSpan = document.createElement('span');
+      for (let i = 0; i <= num; i++) {
+        let numSpan = document.createElement('span');
+        numSpan.innerText = i;
+        geNum.appendChild(numSpan);
+        let spanStyle = {
+          width: '100px',
+          height: '50px',
+          border: '1px solid black',
+          padding: '5px',
+          textAlign: 'center',
+          marginTop: '10px',
+          color: 'white',
+          fontSize: '3em',
+        };
+        Object.assign(numSpan.style, spanStyle);
+        if (i % 2 === 0) {
+          numSpan.style.backgroundColor = 'green';
+        }
+        if (i % 2 !== 0) {
+          numSpan.style.backgroundColor = 'yellow';
+        }
+        if (isPrime(i)) {
+          numSpan.style.backgroundColor = 'red';
+        }
+      }
+    }
+
+    let geNumStyle = {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      textAlign: 'center',
+      alignItems: 'flex-start',
+      flexWrap: 'wrap',
+    };
+    Object.assign(geNum.style, geNumStyle);
+
+    let wrapperCss = {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '',
+    };
+
+    let inputBoxCss = {
+      display: 'flex',
+      flexDirection: 'row',
+      width: '50%',
+    };
+    let inpuntBox = document.getElementById('inputbox');
+    Object.assign(inpuntBox.style, inputBoxCss);
+
+    let wrapper = document.getElementById('wrapper');
+    Object.assign(wrapper.style, wrapperCss);
+
+    document.querySelector('h1').style.color = 'green';
+    document.querySelector('h1').style.width = '';
+    document.querySelector('button').style.color = 'white';
+    document.querySelector('button').style.backgroundColor = 'green';
+    //document.getElementById('intro').style.background = 'grey';
+    document.getElementById('intro').style.width = '100%';
+    document.getElementById('intro').style.minHeight = '40vh';
+
+    document.getElementById('intro').style.display = 'flex';
+    document.getElementById('intro').style.flexDirection = 'column';
+    document.getElementById('intro').style.alignItems = 'center';
+    document.querySelector('input').style.width = '70%';
+    document.querySelector('input').style.height = '40px';
+
+    // Part 2 // Adding Evening Listener on whole Document
+
+    document.addEventListener('keydown', (event) => {
+      const keyName = event.key;
+      document.getElementById('info').innerText =
+        'You Pressed ' + keyName.toLocaleUpperCase();
+      document.getElementById('info').style.color = 'white';
+      document.getElementById('code').innerText = event.keyCode;
+    });
+
+    const part2 = document.getElementById('part2');
+    let part2Css = {
+      display: 'flex',
+      flexFlow: 'column wrap',
+      alignItems: 'center',
+      textAlign: 'center',
+      minHeight: '20px',
+    };
+    Object.assign(part2.style, part2Css);
+
+    const info = document.getElementById('info');
+    let infoCss = {
+      display: 'flex',
+      backgroundColor: '#00CC99',
+      minHeight: '40px',
+      minWidth: '300px',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: '1.6em',
+    };
+    Object.assign(info.style, infoCss);
+
+    const code = document.getElementById('code');
+
+    let codeCss = {
+      display: 'flex',
+      width: '80px',
+      height: '80px',
+      fontSize: '3em',
+      backgroundColor: '#00CC99',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '0px',
+      marginBottom: '0px',
+      color: 'white',
+    };
+    Object.assign(code.style, codeCss);
+  </script>
+</html>
