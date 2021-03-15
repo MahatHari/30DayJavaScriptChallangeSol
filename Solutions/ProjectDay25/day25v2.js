@@ -67,7 +67,7 @@ for (const country of mostPopulated(countries)) {
 
   gDivContainer.classList.add('ui', 'two', 'column', 'grid', 'container');
   fillDiv.classList.add('column', 'wide', 'red');
-  noFillDiv.classList.add('column', 'three', 'wide');
+  noFillDiv.classList.add('column', 'blue', 'wide');
 
   let p = Math.floor((country.population / dPopulation) * 100);
   fillDiv.style.width = `${p}%`;
