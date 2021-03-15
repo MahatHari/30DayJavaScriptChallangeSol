@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="cover">
+      <h1>Calculate a weight of an object on a planet</h1>
+      <div class="inputFields">
+        <input type="text" id="mass" placeholder="Mass in Kilogram" />
+        <select name="planet" id="planet">
+          <option value="0">Select-Planet</option>
+          <option value="1">Mercury</option>
+          <option value="2">Venus</option>
+          <option value="3">Earth</option>
+          <option value="4">Mars</option>
+          <option value="5">Jupiter</option>
+          <option value="6">Saturn</option>
+          <option value="7">Uranus</option>
+          <option value="8">Neptune</option>
+          <option value="9">Pluto</option>
+        </select>
+        <button onclick="calculate()">Calculate Weight</button>
+      </div>
+      <div id="results">
+        <img id="planetpic" />
+        <p id="value"></p>
+      </div>
+    </div>
+    <script>
+      const gravity = {
+        Mercury: 3.7,
+        Venus: 8.87,
+        Earth: 9.789,
+        Mars: 3.71,
+        Jupiter: 24.92,
+        Saturn: 10.44,
+        Uranus: 8.87,
+        Neptune: 11.15,
+        Pluto: 0.58,
+      };
+
+      let mass = document.getElementById('mass');
+      let selected = document.getElementById('planet');
+      document.body.style.backgroundImage = "url('galaxy.gif')";
+      document.body.style.backgroundBlendMode = 'lighten';
+      document.querySelector('h1').style.color = 'white';
+      document.querySelector('h1').style.fontWeight = 'bold';
+      function calculate() {
+        let weight;
+        let mass = document.getElementById('mass');
+        let g = selected.options[selected.selectedIndex].text;
+        let m = parseInt(mass.value);
+        let infoVal = document.getElementById('value');
+        let img = document.getElementById('planetpic');
+        document.getElementById('results').style.display = 'flex';
+
+        // Aborted short hand to have more control on other aspects of 'results div'
+        /* mass.value.length = 0 || isNaN(m))
+          ? (infoVal.innerText = ' Give mass in Number')
+          : g === 'Select-Planet'
+          ? (infoVal.innerText = 'Not selected Planet')
+          : (infoVal.innerText = `Your weight in ${g} is ${weight.toFixed(2)}`); */
+
+        if ((mass.value.length = 0 || isNaN(m))) {
+          infoVal.innerText = ' Give mass in Number';
+        } else if (g === 'Select-Planet') {
+          infoVal.innerText = 'Select a Planet';
+          img.src = '';
+        } else {
+          weight = m * gravity[g];
+          infoVal.innerText = `Your weight in ${g} is ${weight.toFixed(2)}`;
+          img.src = g + '.png';
+        }
+        infoVal.style.color = 'white';
+      }
+
+      let cover = document.getElementsByClassName('cover');
+
+      let coverCss = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: 'auto',
+      };
+
+      Object.assign(cover[0].style, coverCss);
+
+      let inputFileds = document.getElementsByClassName('inputFields');
+
+      const inputDivCss = {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '100%',
+        marginTop: '50px',
+        minHeight: '50px',
+        //backgroundColor: 'green',
+      };
+      Object.assign(inputFileds[0].style, inputDivCss);
+
+      const massCss = {
+        width: '40%',
+        backgroundColor: '#00FFFF',
+        color: 'white',
+        fontSize: '1.6rem',
+      };
+      Object.assign(mass.style, massCss);
+
+      const selectedCss = {
+        width: '15%',
+        backgroundColor: '#00FFFF',
+        color: 'white',
+        fontSize: '1.6rem',
+      };
+      Object.assign(selected.style, selectedCss);
+
+      document.querySelector('button').style.backgroundColor = '#D3D3D3	';
+      document.querySelector('button').style.color = 'white';
+      document.querySelector('button').style.fontSize = '1.6rem';
+
+      const resultDiv = document.getElementById('results');
+      const resultDivCss = {
+        display: 'none',
+        flexDirection: 'row',
+        alignItems: 'center',
+        background: '#F8F8F850',
+        marginTop: '40px',
+        border: '1px solid red',
+        borderRadius: '8px',
+        width: '100%',
+        justifyContent: 'space-evenly',
+      };
+      Object.assign(resultDiv.style, resultDivCss);
+
+      const resultP = document.getElementById('value');
+      const reslutPcss = {
+        display: 'flex',
+        background: '#F8F8F840',
+        width: '50%',
+        height: '100px',
+        fontSize: '1.6rem',
+        alignItems: 'center',
+        //border: '1px solid red',
+        justifyContent: 'center',
+      };
+      Object.assign(resultP.style, reslutPcss);
+    </script>
+  </body>
+</html>
