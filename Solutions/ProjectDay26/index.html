@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="ui inverted violet vertical masthead center aligned segment">
+      <div class="ui text container">
+        <h1 class="ui inverted header">World Countries List</h1>
+
+        <!-- Adding Total number of countires here by JS -->
+        <h2>Total Number of Countries:</h2>
+        <h3></h3>
+        <!-- Adding Dynamic element here starting word or containing -->
+        <button
+          class="ui medium button toggle"
+          id="startingWord"
+          onclick="{document.getElementsByClassName('button')[0].classList.toggle('active')}"
+        >
+          STARTING WORD
+        </button>
+        <button
+          class="ui medium toggle button"
+          id="searchAny"
+          onclick="{document.getElementsByClassName('button')[1].classList.toggle('active')}"
+        >
+          SEARCH WITH ANY WORD
+        </button>
+
+        <div class="ui input link icon fluid large" style="margin-top: 10px">
+          <input type="text" placeholder="Seach Country ...." id="input" />
+          <i class="inverted circular search link icon"></i>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ui cards stackable grid container"
+      id="cards"
+      style="margin-top: 20px"
+    ></div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
