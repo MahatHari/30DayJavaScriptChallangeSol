@@ -36,6 +36,12 @@ const totalPopulation = countries.reduce(
   0
 );
 
+const dPopulation = mostPopulated(countries).reduce(
+  (acc, currVal) => acc + currVal.population,
+  0
+);
+console.log(dPopulation);
+
 const totalLangauge = mostSpokenLanguage(countries).reduce(
   (acc, current) => acc + current.count,
   0
@@ -60,8 +66,12 @@ for (const country of mostPopulated(countries)) {
   gDivContainer.append(fillDiv, noFillDiv);
 
   gDivContainer.classList.add('ui', 'two', 'column', 'grid', 'container');
-  fillDiv.classList.add('column', 'thirteen', 'wide', 'red');
+  fillDiv.classList.add('column', 'wide', 'red');
   noFillDiv.classList.add('column', 'three', 'wide');
+
+  let p = Math.floor((country.population / dPopulation) * 100);
+  fillDiv.style.width = `${p}%`;
+  console.log(p);
 
   numberDiv.innerText = country.population;
   const holdDiv = document.createElement('div');
@@ -95,10 +105,14 @@ for (const lang of mostSpokenLanguage(countries)) {
   gDivContainer.append(fillDiv, noFillDiv);
 
   gDivContainer.classList.add('ui', 'two', 'grid', 'container');
-  fillDiv.classList.add('column', 'thirteen', 'wide', 'red');
+  fillDiv.classList.add('column', 'wide', 'red');
   noFillDiv.classList.add('column', 'three', 'wide', 'blue');
 
   numberDiv.innerText = lang.count;
+  let p = Math.floor((lang.count / totalLangauge) * 100);
+  fillDiv.style.width = `${p}%`;
+
+  console.log(p);
   const holdDiv = document.createElement('div');
   graphDiv.appendChild(gDivContainer);
   holdDiv.append(nameDiv, graphDiv, numberDiv);

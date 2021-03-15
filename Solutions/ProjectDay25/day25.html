@@ -13,18 +13,32 @@
     />
     <title>Day 25</title>
   </head>
-  <body>
-    <header class="ui center aligned container primary">
-      <h2>World Countries Data</h2>
-      <h3>Currently we have 250 Countries</h3>
-      <div class="ui horizontal list">
-        <div class="item">Population</div>
-        <div class="item">Langauges</div>
+  <body style=" background-color:orange">
+    <header
+      class="ui center aligned container"
+      style="
+       
+        margin-bottom: 50px;
+        background-color: orange;
+        width: 100%;
+      "
+    >
+      <div class="ui center aligned" style="margin-bottom: 50px;"">
+        <h2 style="padding: 50px;">World Countries Data</h2>
+        <h3>Currently we have 250 Countries</h3>
+      </div>
+      <div class="ui horizontal list grid" style="margin-bottom: 50px;">
+        <div class="item">
+          <div class="ui button orange">Population</div>
+        </div>
+        <div class="item">
+          <div class="ui button orange">Langauges</div>
+        </div>
       </div>
     </header>
-    <div class="dataSection">
-      <div class="ui left aligned container" id="displayPopulation"></div>
-      <div class="ui container" id="displayLang"></div>
+    <div class="dataSection" style="background-color: olive;">
+      <div class="ui left aligned container" id="displayPopulation" style="padding-top: 40px;"></div>
+      <div class="ui container" id="displayLang" style="padding-top: 40px;"></div>
     </div>
 
     <script type="module" src="day25v2.js"></script>
