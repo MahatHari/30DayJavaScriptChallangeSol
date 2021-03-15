@@ -1,0 +1,89 @@
+header{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: #F0EEEB;
+}
+header h2, h3{
+    color: orange;
+    line-height: 1.6rem;
+   
+}
+header h2{
+    font-size: xx-large;
+   
+}
+header nav{
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: center;
+    background-color: white;
+   width: 100%;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    
+}
+nav ul li{
+background-color: orange;
+width: 200px;
+margin-left: 50px;
+margin-right: auto;
+text-align: center;
+line-height: 1.6rem;
+color: black;
+border-radius: 4px;
+
+}
+
+.dataSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color:#F0EEEB;
+    height:100vh;
+    width: 100%;
+}
+.name{color:red}
+.displayLang{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color:#F0EEEB;
+    height:100vh;
+    width: 100%;
+}
+.dataDiv{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    width: 100%;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.graphDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: whitesmoke;
+   justify-content: center;
+   width: 500px;
+
+}
+.chartDiv{
+    background-color: orange;
+    color:red;
+}
