@@ -1,4 +1,4 @@
-import { hariSolution2020 } from './info.js';
+ import { hariSolution2020 } from './info.js';
 
 // Color Generator
 function randomCollorGenerator() {
